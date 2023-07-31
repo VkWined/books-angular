@@ -17,7 +17,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
@@ -54,6 +54,7 @@ import { AuthService } from './services/auth.service';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
+    MatToolbarModule,
     MatFormFieldModule,
     FormsModule,
     MatTableModule,

@@ -1,2 +1,12 @@
-
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+    <span>{{ title }}</span>
+    <span class="example-spacer"></span>
+    <button mat-button *ngIf="(user$ | async) !== null" routerLink="/books">Books</button>
+    <button mat-button *ngIf="(user$ | async) !== null" routerLink="/authors">Authors</button>
+    <button mat-button *ngIf="(user$ | async) !== null" routerLink="/genres">Genres</button>
+    <button mat-button *ngIf="(user$ | async) === null" routerLink="/login">Login</button>
+    <button mat-button *ngIf="(user$ | async) === null" routerLink="/register">Register</button>
+    <button mat-button *ngIf="(user$ | async) !== null" (click)="logout()">Logout</button>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+  
