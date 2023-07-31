@@ -1,0 +1,25 @@
+<form [formGroup]="bookForm" (ngSubmit)="onCreate()" autocomplete="off">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Author</mat-label>
+      <mat-select formControlName="authorId">
+        <mat-option *ngFor="let author of authors" [value]="author.id">{{author.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Genre</mat-label>
+      <mat-select formControlName="genreId">
+        <mat-option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <!-- Other book details here -->
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="!bookForm.valid">Create</button>
+  </form>
+  

@@ -1,0 +1,8 @@
+<form [formGroup]="authorForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Author Name">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="authorForm.invalid">Create Author</button>
+  </form>
+  

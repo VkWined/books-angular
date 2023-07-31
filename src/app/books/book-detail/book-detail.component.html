@@ -1,0 +1,16 @@
+<mat-card *ngIf="book">
+    <mat-card-header>
+      <mat-card-title>{{ book.title }}</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <p><strong>Author:</strong> {{ book.author.name }}</p>  <!-- replace 'name' with the actual field in your author object -->
+      <p><strong>Genre:</strong> {{ book.genre.name }}</p>  <!-- replace 'name' with the actual field in your genre object -->
+      <!-- Add other fields as necessary -->
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="editBook()">Edit</button>
+      <button mat-button (click)="deleteBook()">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+  

@@ -1,0 +1,30 @@
+<div class="mat-elevation-z8">
+    <div class="table-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+    <a mat-raised-button color="primary" [routerLink]="['/authors/create']">Create New Author</a>
+    <table mat-table [dataSource]="dataSource" class="full-width-table">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let author">{{ author.name }}</td>
+      </ng-container>
+      
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let author">
+          <button mat-raised-button color="primary" [routerLink]="['/authors/edit', author.id]">Edit</button>
+          <button mat-raised-button color="warn" (click)="onDelete(author.id)">Delete</button>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

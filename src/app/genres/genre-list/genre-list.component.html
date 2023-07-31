@@ -1,0 +1,25 @@
+<div class="mat-elevation-z8">
+    <a mat-raised-button color="primary" [routerLink]="['/genres/create']">Create New Genre</a>
+    <table mat-table [dataSource]="dataSource" class="full-width-table">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let genre">{{ genre.name }}</td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let genre">
+          <button mat-button color="primary" [routerLink]="['/genres/edit', genre.id]">Edit</button>
+          <button mat-button color="warn" (click)="deleteGenre(genre.id)">Delete</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
